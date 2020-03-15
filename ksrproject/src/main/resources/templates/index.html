@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Index</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+<style>
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+  
+   color: black;
+   text-align: center;
+}
+.sample{
+position:absolute;
+width:50%;
+bottom:50px;
+}
+.justified {
+    position:absolute;
+    left:44%;
+    color:white;
+}
+h4{
+ color:red;
+}
+
+
+
+body {
+ background-image: url("/resources/image/blood.jpg" );
+ width:100vw;
+ height:100vh;
+ 
+ background-repeat:no-repeat;
+ background-size:100% 100%;
+ position:relative;
+ }
+ nav{
+  overflow:auto;
+ }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
+
+    <div class="container-fluid">
+       
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav">
+           
+                <div th:switch="${bloods}" class="container my-5">
+                    
+                  <a href="/bloods/signup" class="btn btn-primary"><i class="fas fa-user-plus ml-2"> +AddBlood</i></a>&nbsp;&nbsp;
+                  <a href="/bloods/about" class="btn btn-primary"><i class="fas fa-user-plus ml-2"> about</i></a>
+                   <a href="/bloods/select/{bloodgroup,location}" class="btn btn-primary"><i class="fas fa-user-plus ml-2"> search</i></a>
+               </div>
+           </div>
+              
+            </div>
+             <div class="nav navbar-nav justified">
+            <h1 class="text-secondary">BloodBank</h1>
+             </div>
+          
+        
+           
+            
+           
+                <form action="#" th:action="@{/bloods/select/{bloodgroup}}" th:object="${bloods}"  method="get" class="form-inline my-2 my-lg-0">
+               
+               <input type="text" name="bloodgroup" class="form-control" id="bloodgroup"  placeholder="bloodgroup">&nbsp; <button class="btn btn-outline-success my-2 my-sm-0">search</button>
+               </form>
+              </div> 
+               
+             
+                
+            
+            
+       
+       
+</nav>
+
+<h4>“Donate your blood for a reason, let the reason to be life”</h4><br>
+<h4>“Spare only 15 minutes and save one life”</h4><br>
+<h4>“A bottle of blood saved my life, was it yours.”</h4><br>
+<h4>“Don’t let mosquitoes get your blood first.”</h4>
+
+
+
+</body>
+</html>
+ 
